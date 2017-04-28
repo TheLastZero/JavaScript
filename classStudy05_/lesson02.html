@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function test(){
+			//毕业时间
+			var g=new Date("2019","5","15","0","0");
+			//现在时间
+			var now=new Date();
+			var t=document.getElementById("t1");
+			
+			var day=Math.floor((g.getTime()-now.getTime())/(24*60*60*1000));
+			var hour=Math.floor((g.getTime()-now.getTime())/(60*60*1000));
+			var min=Math.floor((g.getTime()-now.getTime())/(60*1000));
+			var sec=Math.floor((g.getTime()-now.getTime())/(1000));
+			
+			t.value=day+"天"+hour+"小时"+min+"分钟"+sec+"秒";
+			setTimeout("test()",500);
+			}
+			
+		</script>
+		<style type="text/css">
+			#t1{
+				width: 600px;
+			}
+		</style>
+	</head>
+	<body onload="test()">
+		<input type="text" id="t1" value="" />
+	</body>
+</html>

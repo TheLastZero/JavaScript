@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			字符串常用操作
+			
+			复习字符串
+			search()：
+				方法用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串
+			match()
+				方法可在字符串内检索指定的值，或找到一个或者多个正则表达式的匹配
+				match以数组形式返回，所以会间隔逗号
+			replace()
+				方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的字串
+			split()
+				方法用于把一个字符串分割成字符串数组
+		-->
+		<!--
+			正则表达式语法
+			
+		-->
+		<script type="text/javascript">
+			var str="1487we79jw4rehwguwhr";
+			//返回检索字符的下标,下标从0开始,检索不到则返回-1
+			document.write("search:"+str.search('h')+"<br />");
+			/**
+			 * 检索到有这个字符，就返回这个字符串本身，不是下标，而是实实在在的值
+			 * 如果找不到则返回null
+			 */
+			document.write("match:"+str.match('79sjw')+"<br />");
+			
+			//替换,返回值是被替换后的字符串
+			document.write(str.replace('1487','666')+"<br />");
+			//分割字符串,按照w分成3组，不会显示w，第三个w后的字符串都丢弃
+			document.write(str.split('w',3)+"<br />");
+		</script>
+	</head>
+	<body>
+		<h1>02正则表达式之字符串常用操作</h1>
+	</body>
+</html>

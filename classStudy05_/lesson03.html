@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<!--
+		滚动字
+	-->
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+//			var arr=new Array();
+//			
+//			 arr[0]=[[1,7,79],"小红","小黄"];
+//			 arr[1]=["祭坛说","后手帝如来","小叶"];
+//			 arr[2]=["小飞侠","肥猪","猪猪侠"];
+//			
+//			for( i in arr){
+//				for(j in arr[i]){
+//					document.write(arr[i][j]+"<br />");
+//				}	
+//			}
+		
+		var j=0;
+		function testArr(){
+			var arr=new Array();
+			
+			 arr[0]=["小暗黄","小红","小黄"];
+			 arr[1]=["祭坛说","后手帝如来","小叶"];
+			 arr[2]=["小飞侠","肥猪","猪猪侠"];
+			
+			var t=document.getElementById("t1");
+			
+			var str=""+arr[j];
+			var str1=str.replace(/,/g,"      ");
+			
+			t.value=str1;
+			j++
+			if(j==arr.length){
+				j=0;
+			}
+			setTimeout("testArr()",1000);
+		}
+		</script>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+			#t1{
+				width: 600px;
+				background-color: bisque;
+				text-align: center;
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body onload="testArr()">
+		<input type="text" id="t1" value="" />
+	</body>
+</html>

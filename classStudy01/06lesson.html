@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var a="<table border='2px' cellpadding='0' bordercolor='red'>";
+			document.write(a);
+			for(var i=1;i<=9;i++){
+				var d="<tr height='10px;'>";
+				document.write(d);
+				for(var j=1;j<=i;j++){
+				var c="<td width='10px;'>"+j+"*"+i+"="+i*j+"</td>";
+				document.write(c);
+				}
+				var d1="</tr>";
+				document.write(d1);
+			}
+			var b="</table>";
+			document.write(b);
+		</script>
+	</head>
+	<body>
+		<!--<table border="2px" cellpadding="0" bordercolor="red">
+			<tr height="5px;">
+				<td width="5px;"></td>
+			</tr>
+		</table>-->
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			JavaScript的Math对象(用来执行数学任务)
+			
+			Math是固有对象，不需要去new，因为已经内置了
+		-->
+		<script type="text/javascript">
+			function testMath(){
+				//3.1415926
+				document.write("圆周率"+Math.PI+"<br />");
+				//e
+				document.write("e的值是"+Math.E+"<br />")
+				//看属性,这将返回2的平方根大约是 1.414
+				document.write("属性"+Math.SQRT2+"<br />");
+				//方法,取绝对值
+				var num=-3000;
+				document.write("取绝对值"+Math.abs(num)+"<br />");
+				//四舍五入位最近的整数
+				var n1=379.64552;
+				document.write(n1+"四舍五入"+Math.round(n1)+"<br />");
+				//向下取整,在Java中的实现方法，就是先减去0.5再四舍五入
+				var n2=8888.999;
+				document.write(n2+"向下取整数"+Math.floor(n2)+"<br />");
+				//向上取整,不管小数部分多小，都进1,就是加上0.5再四舍五入
+				var n3=81.0099;
+				document.write(n3+"向上取整数"+Math.ceil(n3)+"<br />");
+				//最大值和最小值
+				document.write("最大值"+Math.max(90,1984,897,988)+"<br />");
+				document.write("最小值"+Math.min(116,7,4,657498,159)+"<br />");
+				//次幂和平方根
+				document.write("2的3次幂"+Math.pow(2,3)+"<br />");
+				document.write("64的平方根"+Math.sqrt(64)+"<br />");
+				
+				//随机数字,默认是0到1，就是0.多不会到1,会有0的
+				//如果要去小数，在前面加一个四舍五入的round就好
+				document.write("随机数字"+Math.round(Math.random()*101));
+				
+			}
+		</script>
+	</head>
+	<body>
+		<h1>JavaScript的Math对象(用来执行数学任务)</h1>
+		<hr />
+		<input type="button" id="" value="测试数学运算" onclick="testMath()" />
+	</body>
+</html>

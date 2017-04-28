@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			JavaScript中创建三种消息框
+			
+			1、警告框
+			2、确认框
+			3、提示框
+			
+			window是很多对象的根基对象,所以很多时候可以不写window直接写，alert()上面的
+			在window上面的就是object对象了
+		-->
+		<script type="text/javascript">
+			/**
+			 * 警告框
+			 */
+			function testAlert(){
+				//警告框,弹出来之后，只能对警告框进行操作，无法对洽谈内容操作
+				alert("尊敬的用户您好，您的余额不足！"+location.href);
+			}
+			/**
+			 * 确认框
+			 */
+			function testConfirm(){
+				//确认框,返回值是布尔类型
+				var f1=confirm("您真的要离我而去吗");
+				
+				if(f1){//按下确认后进入
+					alert("你怎么不去死，走了就再也不要回来");
+				}else{//按下取消后进入
+					alert("你真坏");
+				}
+			}
+			function testPrompt(){
+				var name=prompt("来将通名","例如：华雄");
+				alert(name);
+			}
+			function testGame(){
+				var f1=window.confirm("里四不四傻");
+				if(f1){
+					alert("你承认自己傻我就放心了");
+				}else{
+					//一直重复不断的调用自己，但是需要给递归一个程序的出口
+					testGame();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>三种消息的对话框</h1>
+		<h1>学习靠的是强烈的学习欲望和学习的劲头</h1>
+		<input type="button" id="" value="警告框" onclick="testAlert()"/>
+		<input type="button" id="" value="确认框" onclick="testConfirm()"/>
+		<input type="button" id="" value="提示框" onclick="testPrompt()"/>
+		<br />
+		<input type="button" id="" value="史上最恶毒的小游戏" onclick="testGame()" />
+	</body>
+</html>

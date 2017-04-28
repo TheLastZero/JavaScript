@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			Date对象（用于处理日期和时间）
+			
+		-->
+		<script type="text/javascript">
+			function testDate() {
+				//创建时间对象
+				var d1 = new Date();
+				//月份的下标是从0开始的，所以写十一月代表的是十二月
+				var d2=new Date(2015,11,11,11,11,11);
+				//用斜杠声明的月份下标不用管，按正常的写就行
+				var d3=new Date("2015/11/11");
+				
+				document.write("当前时间为"+d1+"<br />")
+				document.write("声明一个固定的时间"+d2+"<br />");
+				document.write("用斜杠声明一个具体的时间"+d3+"<br />");
+				
+				/**
+				 * 获取时间，的年月日
+				 * 有获取get，就有设置的set方法
+				 */
+				//获取年d1.getYear()是从1900年开始算的
+				document.write("获取年"+d1.getYear()+"=="+d1.getFullYear()+"<br />");
+				//获取月份(0--11)下标从0开始,所以要+1
+				document.write("获取月"+(d1.getMonth()+1)+"<br />");
+				//获取日
+				document.write("获取日"+d1.getDate()+"<br />");
+				//获取星期,星期天默认是0，下标还是从零开始
+				document.write("获取星期"+d1.getDay()+"<br />");
+				//获取小时
+				document.write("获取小时"+d1.getHours()+"<br />");
+				//获取分钟
+				document.write("获取分钟"+d1.getMinutes()+"<br />");
+				//获取秒钟
+				document.write("获取秒钟"+d1.getSeconds()+"<br />");
+				//获取毫秒,毫秒是一个三位数的
+				document.write("获取毫秒"+d1.getMilliseconds()+"<br />");
+				//获取全部毫秒,从1970年到现在的毫秒数
+				document.write("获取从1970年到现在的总毫秒数"+d1.getTime()+"<br />");
+			}
+		</script>
+	</head>
+
+	<body>
+		<h1>JavaScript的时间对象</h1>
+		<input type="button" id="" value="测试时间对象" onclick="testDate()" />
+	</body>
+
+</html>

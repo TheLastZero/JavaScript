@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			document.write("<div style='font-size: 36px; color: red'>");
+			document.write("欢迎使用");
+			document.write("</div>")
+			
+			var a=true;
+			var b=true;
+			function gettext(){
+				if(a){
+				document.form1.wbk.value="请输入用户名";
+				document.form1.pas.value="请输入密码";
+				a=false;
+				}
+			
+			}
+			
+			function deletetext(){
+				if(b){
+				document.form1.wbk.value="";
+				document.form1.pas.value="";
+				b=false;
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<form name="form1">
+			用户名：<input type="text" name="wbk" onmousemove="gettext()" onclick="deletetext()">
+			密     码：<input type="password" name="pas" onmouseover="gettext()" onclick="deletetext()">
+		</form>
+		
+	</body>
+</html>

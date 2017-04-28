@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			事件对象
+		-->
+		<script type="text/javascript">
+			
+			function showMove(event){
+				//获取事件对象
+				var eve=window.event||event;
+				//适应浏览器差异,获取鼠标坐标值
+				var x=eve.x||eve.pageX;
+				var y=eve.y||eve.pageY;
+				//开始获取鼠标的坐标值 
+				alert("当前鼠标的坐标值为  x:"+x+" y:"+y);
+			}
+			
+			function showKey(event){
+				
+				//获取事件对象,就是键盘按下哪一个键，就答应那个键的数字值
+				var eve=window.event||event;
+				//获取事件的值,为了适应不同的浏览器
+				var code =eve.charCode||eve.keyCode
+				//打印
+				alert(code);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>事件对象</h1>
+		
+		<div id="show" onmousemove="showMove(event)" style="height: 300px; width: 500px; border: solid 3px;"></div>
+		
+		<hr />
+		
+		<input type="text" onkeyup="showKey(event)" />
+	</body>
+</html>

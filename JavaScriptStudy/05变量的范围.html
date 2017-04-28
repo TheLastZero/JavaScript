@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/**
+			 * 可以重复声明变量
+			 * 比如age，但是age的值不会被覆盖，这里的变量的值是100
+			 * 在函数外部不能使用局部变量
+			 */
+			var age=100;
+			var age;
+			
+			var uname="张三";//这里的张三就是全局变量
+			
+			/**
+			 * 借助window对象声明全局变量
+			 */
+			window.pwd="1234567";
+			
+			function text(){
+				var name="李四";//局部变量
+				
+				alert("全局变量"+uname+"  局部变量"+name);
+			}
+			
+			/**
+			 * 测试不写变量类型是否可以使用
+			 * 如果声明变量的时候不加var，那么使用第一次后就会变成全局变量
+			 * 结论是可以的
+			 */
+			function textEmail(){
+				email="测试不写变量类型是否可以使用";
+				alert(email);
+			}
+			
+			alert(age+"window对象声明的变量"+pwd);
+			
+			var aaa=3000;
+			
+			function textaaa(){
+				var aaa;
+				alert(aaa);
+			}
+				
+		</script>
+	</head>
+	<body>
+			
+		<!--
+			写一个按钮,在函数内部可以使用全局变量，和局部变量
+		-->
+		<input type="button" id="" value="在函数内部可以使用全局变量" onclick="text()" />
+		
+		<!--
+			测试不写变量类型是否可以使用
+		-->
+		<br></br>
+		<input type="button" id="" value="测试不写变量类型是否可以使用" onclick="textEmail()"/>
+		
+		<!--
+			局部变量优先局高于全局变量，
+			命名相同时，aaa在局部变量中被赋予的值会优先使用
+		-->
+		<br></br>
+		<input type="button" id="" value="局部变量优先局高于全局变量" onclick="textaaa()" />
+	</body>
+</html>

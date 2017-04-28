@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		function run(){
+			var i;
+			i = Math.floor(Math.random() * 3 + 1);
+			document.getElementById("img1").src = "img1/" + i + ".jpg";
+			setTimeout("run()", 500);
+		}
+	</script>
+
+	<body onload="run()"><!--在页面加载完成就调用run()这个方法-->
+		<img src="img1/1.jpg" id="img1" />
+	</body>
+
+</html>

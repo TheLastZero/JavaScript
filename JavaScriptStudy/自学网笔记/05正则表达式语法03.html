@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			var str1="ababbcqerh4we6t87hwterjh797hn9w8e7qe4";
+			var str2="abab我给我起个好bcqerh4we6t87h别科级干部wterjh797别让hn9w8e7qe4";
+			var str3="第1章 第13章 第21章 第13章 第7章 第15章 第51章 第10章...";
+			//将所有a-z以外的字符替换掉
+			var reg1=/[^a-z]/g;
+			//把所有0-9以外的字符替换掉
+			var reg2=/[^0-9]/g;
+			//把abc三个字母替换为空
+			var reg3=/[abc]/g;
+			//过滤掉字母和数字，只留下汉字
+			var reg4=/[a-z 0-9]/ig;
+			//现在的取值范围是10-29
+			var reg5=/第[1-2][0-9]章/g;
+			
+			document.write("<ol>");
+			document.write('<li>'+str1+'</li>'+'<br>');
+			//将所有a-z以外的字符替换掉
+			document.write('<li>'+str1.replace(reg1,'')+'</li>'+'<br>');
+			//把所有0-9以外的字符替换掉
+			document.write('<li>'+str1.replace(reg2,'')+'</li>'+'<br>');
+			//把abc三个字母替换为空
+			document.write('<li>'+str1.replace(reg3,'')+'</li>'+'<br>');
+			//过滤掉字母和数字，只留下汉字
+			document.write('<li>'+str2.replace(reg4,'')+'</li>'+'<br>');
+			//现在的取值范围是10-29,match以数组形式返回，所以会间隔逗号
+			document.write('<li>'+str3.match(reg5,'')+'</li>'+'<br>');
+
+			
+			document.write("</ol>");
+		</script>
+		<style type="text/css">
+			li{
+				font-size: 20px;
+				width: 500px;
+				background: rgba(0,180,80,0.3);
+				padding: 10px;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+</html>

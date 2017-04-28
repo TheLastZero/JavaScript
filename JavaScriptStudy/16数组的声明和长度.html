@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			JavaScript的数组对象创建有三种方法
+		-->
+		<script type="text/javascript">
+			//数组的创建
+			var a1=new Array();
+			var a2=new Array(5);//这个数组的长度为50
+			var a3=new Array("张三","李四","王五");
+			//打印数组信息
+			document.write(a1+"---"+a2+"---"+a3+"<br />");
+			
+			//更加简洁的方式
+			var aa1=[];
+			var aa2=["章子怡","范冰冰","美猴王"];
+			
+			//答应数组信息
+			document.write(aa1+"---"+aa2+"<br />");
+			
+			
+			//数组的长度
+			var a=["aa","bb","cc","dd","ee","dd","ff"];
+			
+			//查看数组的长度
+			document.write(a.length+"<br />");
+			
+			//数组中元素的获取,数组下标从0开始
+			document.write(a[0]+"<br />");
+			document.write(a[a.length-1]+"<br />");
+			
+			//遍历元素
+			for(var i=0;i<a.length;i++){
+				document.write(a[i]+"\t");
+			}
+			
+			document.write("<br />");
+			/**
+			 * 数组的长度是可变的,Java为例，
+			 * ArrayList，linklist vector
+			 * 
+			 * JS里面的数组是一个伪对象
+			 */
+			a.length=10;
+			document.write(a);
+			document.write("<br />");
+			
+			a.length=3;
+			document.write(a);
+			
+			document.write("<br />");
+			//再次把aa长度改成10时，就已经丢失之前3以后的数据了
+			a.length=10;
+			document.write(a);
+			
+		
+		</script>
+	</head>
+	<body>
+		<h1>JavaScript的数组</h1>
+	</body>
+</html>

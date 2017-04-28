@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			Java中有一本书叫Java编程思想
+		-->
+		<script type="text/javascript">
+			
+			function text(){
+				document.write("我没有任何形参");
+			}
+			function text(a){
+				document.write("我有一个参数");
+			}
+			function text(a,b){
+				document.write("我形参的个数为:"+text.length+"<br />");
+				document.write("实际传入参数的个数"+arguments.length+"<br />");
+			}
+			/**
+			 * 测试函数的重载
+			 * 在JS中，形参的数目和实参的数目可以不同
+			 */
+			text();
+			
+			/**
+			 * 实现函数的重载
+			 * 实心函数的重载：参数的类型，参数的数量
+			 */
+			function sayHello(){
+				//获取并且判断参数的类型数目
+				var args=arguments;
+				if(args.length==1 && typeof args[0]=="string"){
+					document.write("执行一个参数的方法===字符串"+"<br />");
+				}else if(args.length==1 && typeof[0]=="number"){
+					document.write("执行两个参数的方法===数字"+"<br />");
+				}else if(args.length==2){
+					document.write("执行两个参数的方法"+"<br />");
+				}else{
+					document.write("暂无对于的处理方法"+"<br />");
+				}
+			}
+			//测试重载
+			sayHello(1);
+			sayHello("a");
+			
+			
+		</script>
+	</head>
+	<body>
+		<h1>函数的重载</h1>
+	</body>
+</html>

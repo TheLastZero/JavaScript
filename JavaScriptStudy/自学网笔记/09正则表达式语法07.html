@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			
+		-->
+	</head>
+	<script type="text/javascript">
+		var str1='HTML5&&&123 HTML5';
+		var str2="100cm 120cm 240cm 3000 1500";
+		
+		
+		//  n$限定结尾的量词,这里限定的结尾是HTML5
+		var reg1=/HTML5$/g;
+		//  ^n限定开头的量词n$限定结尾的量词,只有字符串完全为HTML5的时候才会找到
+		var reg2=/^HTML5$/g;
+		//	?=n匹配任何其后紧接字符串n的字符串
+		var reg3=/\d+(?=cm)cm/g;
+		//	?!n匹配任何其后没有紧接字符串n的字符串,\d{3,}三位数以后接cm的舍去
+		var reg4=/\d{3,}(?!cm)/g;
+		
+			document.write('<ol>');
+			document.write('<li>'+str1+'</li>');
+			document.write('<li>'+str1.match(reg1)+'</li>');
+			document.write('<li>'+str1.match(reg2)+'</li>');
+			document.write('<li>'+str2+'</li>');
+			document.write('<li>'+str2.match(reg3)+'</li>');
+			document.write('<li>'+str2.match(reg4)+'</li>');
+			document.write('</ol>');
+		
+		
+	</script>
+	<style type="text/css">
+			li{
+				font-size: 20px;
+				width: 500px;
+				background: rgba(0,180,80,0.3);
+				padding: 10px;
+				margin: 10px;
+			}
+		</style>
+	<body>
+	</body>
+</html>

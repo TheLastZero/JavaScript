@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			计算器
+		-->
+	</head>
+
+	<script type="text/javascript">
+		//声明文本框1的值
+		var resultT1;
+		//声明文本框2的值
+		var resultT2;
+		//声明结果
+		var result = 0;
+		//声明一个变量表示当前处于什么计算法则中
+		var rule = 0;
+		//声明一个开关，当按下了加减乘除键以后，就在第二个文本框中输入
+		var f1=true;//为true时在第一个文本框输入,为false在第二个文本框输入
+		
+		/**
+		 * 点击数字在第一个文本框里显示的方法
+		 */
+		function setT1(s) {
+			//声明一个变量来装之前文本框内的值
+			if(f1){
+				var wbk1 = document.form1.t1.value;
+			}else{
+				var wbk1 = document.form1.t2.value;
+			}	
+			if(s == "7") {
+				var wb = wbk1 + "7"
+			} else if(s == "8") {
+				var wb = wbk1 + "8"
+			} else if(s == "9") {
+				var wb = wbk1 + "9"
+			} else if(s == "4") {
+				var wb = wbk1 + "4"
+			} else if(s == "5") {
+				var wb = wbk1 + "5"
+			} else if(s == "6") {
+				var wb = wbk1 + "6"
+			} else if(s == "1") {
+				var wb = wbk1 + "1"
+			} else if(s == "2") {
+				var wb = wbk1 + "2"
+			} else if(s == "3") {
+				var wb = wbk1 + "3"
+			}
+			if(f1){
+				document.form1.t1.value=wb;
+			}else{
+				document.form1.t2.value=wb;
+			}
+		}
+
+		/**
+		 * 点击加减乘除的方法,点击之后文字输入到第二个文本框
+		 */
+		function math(s) {
+
+			if(s == "+") {
+				rule = 1;
+			} else if(s == "-") {
+				rule = 2;
+			} else if(s == "*") {
+				rule = 3;
+			} else if(s == "/") {
+				rule = 4;
+			}
+			f1=false;
+		}
+		/**
+		 *	判断当前的计算法则，在用文本框1,2的值做计算 
+		 * 	加减乘除
+		 */
+		function rules() {
+			resultT1 = document.form1.t1.value;
+			var p1 = parseInt(resultT1);
+			resultT2 = document.form1.t2.value;
+			var p2 = parseInt(resultT2);
+			if(rule == 1) {
+				result = p1 + p2;
+			} else if(rule == 2) {
+				result = p1 - p2;
+			} else if(rule == 3) {
+				result = p1 * p2;
+			} else if(rule == 4) {
+				result = p1 / p2;
+			}
+			document.form1.t3.value = result;
+			//按下等号计算完之后，又从第一个文本框开始输入
+			f1=true;
+		}
+
+		/**
+		 * 增加一个鼠标点击的方法
+		 * 鼠标点击第一个文本框，下面的按键就作用于第一个文本框
+		 * 鼠标点击第二个文本框，下面的按键就作用于第二个文本框
+		 */
+		function mclick(num){
+			if(num==1){
+				f1=true;
+			}else if(num==2){
+				f1=false;
+			}
+		}
+		
+		/**
+		 * 清除所有文本框,以及值的内容
+		 */
+		function deleteall() {
+			document.form1.t1.value = "";
+			document.form1.t2.value = "";
+			document.form1.t3.value = "";
+
+			resultT1 = 0;
+			resultT2 = 0;
+			result = 0;
+			//按下全部清除之后，又从第一个文本框开始输入
+			f1=true;
+		}
+		
+	</script>
+
+	<body>
+		<form name="form1">
+			<!--//三个文本框-->
+			<input type="text" name="t1" value="" onclick="mclick(1)"/>
+			<br />
+			<input type="text" name="t2" value="" onclick="mclick(2)"/>
+			<br />
+			<input type="text" name="t3" value="" />
+			<br />
+
+			<input type="button" id="" value="7" onclick="setT1('7')" />
+			<input type="button" id="" value="8" onclick="setT1('8')" />
+			<input type="button" id="" value="9" onclick="setT1('9')" />
+			<br />
+			<input type="button" id="" value="4" onclick="setT1('4')" />
+			<input type="button" id="" value="5" onclick="setT1('5')" />
+			<input type="button" id="" value="6" onclick="setT1('6')" />
+			<br />
+			<input type="button" id="" value="1" onclick="setT1('1')" />
+			<input type="button" id="" value="2" onclick="setT1('2')" />
+			<input type="button" id="" value="3" onclick="setT1('3')" />
+			<br />
+			<input type="button" id="" value="+" onclick="math('+')" />
+			<input type="button" id="" value="-" onclick="math('-')" />
+			<input type="button" id="" value="*" onclick="math('*')" />
+			<input type="button" id="" value="/" onclick="math('/')" />
+			<input type="button" id="" value="=" onclick="rules()" />
+			<br />
+			<input type="button" id="" value="全部清除" onclick="deleteall()" />
+			<br />
+		</form>
+	</body>
+
+</html>

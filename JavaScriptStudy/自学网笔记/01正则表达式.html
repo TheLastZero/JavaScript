@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			正则表达式
+			
+			RegExp 对象表示正则表达式，它是对字符串执行模式匹配的强大工具
+			正则表达式简洁并且功能强大，通常用来匹配字符串，
+			比如在表单验证中检验用户输入是否合法。
+			它不仅仅在JavaScript中可以使用，众多的高级编程语言都支持正则表达式。
+			
+		-->
+		<!--
+			过滤不需要的字符串的值
+		-->
+		<script type="text/javascript">
+			function resplace(){
+				//获取三个文本框的值
+				var str=document.getElementById("str").value;
+				var st=document.getElementById("st").value;
+				//以下操作可以让res，直接用res.value赋值，不必每一次都写document.getElementById("st").value;
+				var res=document.getElementById("res");
+				/**
+				 * 1、正常方法
+				 */
+//				//遍历字符串
+//				for(var i=0;i<str.length;i++){
+//					//查找是否有含有st的字符,
+//					if(str.indexOf(st)>-1){
+//						//如果含有就用空字符串代替,就有了清除的作用
+//						str=str.replace(st,"");
+//					}else{
+//						//如果这个字符没有了就退出循环
+//						break;
+//					}
+//				}
+//				res.value=str;
+
+				/**
+				 * 2、正则表达式方法
+				 */
+				res.value=str.replace(new RegExp(st,'g'),'');
+				
+				
+			}
+		</script>
+		<style type="text/css">
+			div{
+				background:rgba(30,100,30,0.2);
+				width: 800px;
+				margin: 20px auto;
+				padding: 15px;
+				text-align: center;
+			}
+			h1{
+				text-align: center;
+			}
+			/*
+			 * 给表格表单里的东西添加样式
+			 */
+			input[type=text]{
+				height: 30px;
+				font-size: 20px;
+				width: 600px;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>正则表达式实例演示</h1>
+		<div id="d1">
+		<p>
+		实例字符串：<input type="text" id="str" name="str" value="" />
+		</p>
+		<p>
+		去除的字符：<input type="text" id="st" name="st" value="" />
+		</p>
+		<p>
+		塞选出结果：<input type="text" id="res" name="res" value="" />
+		</p>
+		<p>
+			<input type="button" id="" value="测试按钮" onclick="resplace()"/>
+		</p>
+		</div>
+	</body>
+</html>

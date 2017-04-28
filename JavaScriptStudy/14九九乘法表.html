@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			/**
+			 * 九九乘法表
+			 * <br/>换行符
+			 */
+			document.write("for循环九九乘法表"+"<br />");
+			for(var i=1;i<10;i++){
+				for(var j=1;j<=i;j++){
+					document.write(j+"*"+i+"="+i*j+"\t");
+				}
+				document.write("<br />");
+			}
+			
+			document.write("<br />");
+			
+			document.write("while九九乘法表"+"<br />");
+			var o=1;
+			var p=1;
+			while(o!=10){
+				p=1;
+				while(p!=o+1){
+					document.write(o+"*"+p+"="+o*p+"\t");
+					p++;
+				}
+				document.write("<br />");
+				o++;
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<h1>九九乘法表</h1>
+	</body>
+</html>

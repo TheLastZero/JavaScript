@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function test() {
+				var a = document.form2.t1.value;
+				var b = document.form2.t2.value;
+				var c = document.form2.t3.value;;
+				if(a == "") {
+					alert("用户名不能为空");
+
+				} else {
+					if(b.length < 6) {
+						alert("密码不能小于6位数");
+					} else {
+						var s1 = parseInt(c.indexOf("@"));
+						var s2 = parseInt(c.indexOf("."));
+
+						if(s1 > s2||c==""||c.indexOf("@")==-1||c.indexOf(".")==-1) {
+							alert("@字符必须在.前面,且邮箱不能为空");
+						} else {
+							alert("提交成功");
+						}
+					}
+				}
+
+			}
+		</script>
+	</head>
+
+	<body>
+		<form name="form2">
+			用户名：<input type="text" id="" value="" name="t1" />
+			<br /> 密 码: <input type="password" id="" value="" name="t2" />
+			<br /> 邮 箱:<input type="text" id="" value="" name="t3" />
+			<br />
+			<input type="button" id="" value="提交" onclick="test()" />
+		</form>
+
+	</body>
+
+</html>

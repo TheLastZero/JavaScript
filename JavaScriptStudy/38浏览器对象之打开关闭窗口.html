@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			BOM对象的打开关闭页面
+			BOM还是一个没有统一规则的东西
+			打开一个新的窗口
+		-->
+		<script type="text/javascript">
+			var money=1000;
+			function testOpen(){
+				//传三个参数URL,窗口的名称(千万别写中文)，窗口的风格
+				/**
+				 * top=0,left=0，//在屏幕上的位置
+				 * toolbar=no,//工具栏没有
+				 * menubar=no,//菜单栏没有
+				 * scrollbars=no，//滚动条没有
+				 * resizable=no,//不能被拖动，浏览器不同效果可能不同
+				 * location=no,//地址栏
+				 * stattus=no,//状态栏
+				 */
+				window.open("38_son.html","son","height=200,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no，stattus=no");
+			}
+			function sayHello(){
+				alert("我是父页面的sayhello");
+			}
+		</script>
+	</head>
+	<body>
+		<h1>父页面，我是主页面</h1>
+		<input type="button" id="" value="打开子页面" onclick="testOpen()"/>
+		
+	</body>
+</html>

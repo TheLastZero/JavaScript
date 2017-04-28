@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			正则表达式的属性和方法
+			
+			·分组、多行匹配的使用
+			·了解RegExp对象属性和方法
+		-->
+	</head>
+	<script type="text/javascript">
+		var str1="td tdd tddd tdddd tdtd tdtdtd tdtdtdtd";
+		//  td{2,4}只匹配是否有2-4个d
+		var str2="1、第一章\n2、第一章\n3、第三章";
+		var reg1=/td{2,4}/g;
+		//	(td){2,4}分组，会将td两个字符作为整体，查找2个td到4个td的字符
+		var reg2=/(td){2,4}/g;
+		//	因为这段正则表达式不能匹配到换行符，所以只会改变第一章的1
+		var reg3=/^\d/g;
+		//	后面加上一个m就能多行匹配
+		var reg4=/^\d/gm;
+		//	效果一样的写法
+		var reg4=/\d/g;
+		
+			document.write('<ol>');
+			document.write('<li>'+str1+'</li>');
+			document.write('<li>'+str1.match(reg1)+'</li>');
+			document.write('<li>'+str1.match(reg2)+'</li>');
+			document.write('<li>'+str2.replace(reg3,"#")+'</li>');
+			document.write('<li>'+str2.replace(reg4,"#")+'</li>');
+			document.write('</ol>');
+			
+			/**
+			 * .global RegExp对象是否具备有标志g
+			 * 有就返回true，没有就返回false
+			 * 
+			 * .ignoreCase RegExp对象是否具有标志i
+			 * 有就返回true，没有就返回false
+			 * 
+			 * .multiline RegExp对象是否具有标志m
+			 * 有就返回true，没有就返回false
+			 */
+			var reg=/HTML5/g
+			alert("是否有标志g："+reg.global);
+			alert("是否有标志i："+reg.ignoreCase);
+			alert("是否有多行匹配符"+reg.multiline);
+			
+	</script>
+	<style type="text/css">
+		li{
+				font-size: 20px;
+				width: 500px;
+				background: rgba(0,180,80,0.3);
+				padding: 10px;
+				margin: 10px;
+			}
+	</style>
+	<body>
+	</body>
+</html>

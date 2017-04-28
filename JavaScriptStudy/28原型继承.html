@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			JavaScript的继承
+			
+				每个函数都有一个prototype属性，这个属性是一个指针，指向一个对象，
+				这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法
+				prototype就是通过调用构造函数而创建的那个对象实例的原型对象
+				
+				在JavaScript中，一共有两种类型的值，原始值，和对象值。每个对象都有
+				一个内部属性prototype，我们称之为原型。原型的值可以是一个对象，也可以是null
+				如果它的值是一个对象，则这个对象也一定有自己的原型，这样就形成了一条线性的链，
+				我们称之为原型链
+				
+				如果创建两个类，
+				一个是动物类
+				一个类是dog类，继承动物类
+		-->
+		<script type="text/javascript">
+			/**
+			 * 相当于Java中的父类
+			 */
+			function Animal(){
+				//属性
+				this.color="red";
+			}
+			Animal.prototype.run=function(){
+				document.write("动物跑起来"+"<br />");
+			}
+			
+			/**
+			 * 相当于Java中的子类
+			 */
+			function Dog(){
+				this.name="旺财";
+			}
+			
+			//通过prototype实现继承,先继承公共父类，然后再添加小狗汪汪汪的原型
+			Dog.prototype=new Animal();
+			Dog.prototype.hou=function(){
+				document.write("小狗汪汪汪"+"<br />");
+			}
+			
+			function testExtends(){
+				//创建dog对象
+				var d1=new Dog();
+				d1.color="yellow";//改变属性的时候，只是在自己上面改变，不会改变父类原型
+				document.write(d1.name+"---"+d1.color+"<br />");
+				d1.hou();
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>JavaScript的继承</h1>
+		<input type="button" id="" value="测试JS的继承 " onclick="testExtends()"/>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			BOM对象的四个方法
+		-->
+	</head>
+	<script type="text/javascript">
+		/**
+		 * 定时器
+		 * setTimeout到了指定的毫秒数后，自动执行代码
+		 * 
+		 * setInterval按指定周期重复执行功能代码
+		 */
+		
+		/**
+		 * 打开广告页面
+		 *
+		 */
+		function openMsg(){
+			window.open("https://www.baidu.com","","height=500,width=500");
+		}
+		/**
+		 * 过3秒钟打开一次百度
+		 * 如果这是广告信息，过了3秒钟之后就会自动弹出
+		 */
+		function testTimeOut(){
+			window.setTimeout("openMsg()",3000);
+		}
+		/**
+		 * 每隔一段时间就会重复执行
+		 */
+		var Intervalid=0;
+		function testInterval(){
+			Intervalid=window.setInterval(function(){
+				//alert是阻断式，如果不点击，程序不会被阻断
+				alert(Math.random());
+			},1000);
+		}
+		/**
+		 * 关闭定时执行
+		 */
+		function testClear(){
+			window.clearInterval(Intervalid);
+		}
+	</script>
+	<body>
+		<h1>定时执行</h1>
+		<input type="button" id="" value="执行一次" onclick="testTimeOut()"/>
+		<input type="button" id="" value="重复执行" onclick="testInterval()" />
+		<hr />
+		
+		<input type="button" id="" value="关闭定时执行" onclick="testClear()"/>
+	</body>
+</html>

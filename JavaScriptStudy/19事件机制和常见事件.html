@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			事件驱动
+			用户的互动操作
+			业务逻辑触发
+			
+			常见的事件操作
+			单击双击，鼠标滚动，键盘按下，表单，页面事件
+		-->
+		<style type="text/css">
+			#d1{
+				border: solid 1px;
+				width: 100px;
+				height: 150px;
+			}
+		</style>
+		<script type="text/javascript">
+			function test() {
+				document.write(999999);
+			}
+
+			function test1() {
+				document.write("测试双击事件");
+			}
+		</script>
+	</head>
+
+
+	<!--
+		onload目前已经不再使用，被js的载入对象代替了
+	-->
+	<body onload="alert('界面加载完成')">
+		<h1>事件驱动</h1>
+		<hr />
+		<input type="button" id="" value="测试单击按钮" onclick="test();" />
+		<input type="button" id="" value="测试双击事件" ondblclick="test1()" />
+
+		<!--鼠标一出去的时候弹框-->
+		<div id="d1" onmouseout="alert('我出去')" onmouseover="alert('鼠标移进来了')"></div>
+		
+		<h3>键盘的事件</h3>
+		<input type="text" onkeyup="alert('按下并且弹起来的事件')" value="onkeyup" />
+		<input type="text" onkeydown="alert('按下键盘并且，系统已经接受到用户信息了')"  value="onkeydowm"/>
+		<input type="text" onkeypress="alert('按下按键，系统还未接受用户输入信息')" value="onkeypress" />
+		
+		<h3>表单事件</h3>
+		<br />
+		
+		<input type="text" value="foucs" onfocus="alert('我获取到了焦点')"/>
+		<input type="text" value="blur" onblur="alert('丢失焦点')" />
+		
+		<input type="text" value="change" onchange="alert('我被改变了')" />
+		<br />
+		
+		<!--
+			选择条
+		-->
+		<select name="address" onchange="alert('城市改变了')">
+			<option value="1">北京</option>
+			<option value="2">上海</option>
+			<option value="3">广州</option>
+		</select>
+		
+		
+	</body>
+</html>

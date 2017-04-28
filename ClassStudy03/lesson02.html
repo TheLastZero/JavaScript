@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			function changeColor(color){
+				color=document.form1.text1.value;
+				if(color==1){
+					document.body.bgColor="aqua";
+				}else if(color==2){
+					document.body.bgColor="bisque";
+				}else if(color==3){
+					document.body.bgColor="black";
+				}
+			}
+			function changediv(){
+				var a=document.form2.text2.value;
+				//把body里的div的id作为一个对象给div这个变量,然后就可以通过div.style来操作div的属性
+					var div=document.getElementById("d1");
+				if(a==1){
+					div.style.backgroundColor="blueviolet";
+				}else if(a==2){
+					
+					div.style.backgroundColor="black";
+				}else if(a==3){
+					
+					div.style.backgroundColor="bisque";
+				}
+			}
+		</script>
+		<style type="text/css">
+			#d1{
+				height: 100px;
+				width: 100px;
+				border: solid 1px ;		
+			}
+		</style>
+	</head>
+	<body>
+		
+		<form name="form1">
+			<input type="text" id="" value="" name="text1"/>
+			<input type="button" id="" value="切换背景皮肤" onclick="changeColor()"/>
+		</form>
+		
+		
+		<div id="d1">
+			
+		</div>
+		<form name="form2">
+			<input type="text" id="" value="" name="text2"/>
+			<input type="button" id="" value="切换div颜色" onclick="changediv()"/>
+		</form>
+	</body>
+</html>

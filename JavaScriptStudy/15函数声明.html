@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			JavaScript的函数
+			调用带参数的函数
+			带有返回值的函数
+			
+			有一本书叫JavaScript语言精粹
+		-->
+		<script type="text/javascript">
+			//函数也是对象
+			var f1=new Function("alert('张三')");
+			f1();
+			//声明式
+			function f2(){
+				alert("李四");
+			};
+			//赋值式,匿名函数，没有名字
+			var f3=function(){
+				alert("赵五");
+			};
+			
+			//调用f3函数
+			f3();
+			
+			/**
+			 *	问好的函数
+			 * @param {String} uname 类似于局部变量
+			 */
+			function sayHello(uname){//接收参数,形式参数
+				alert("早上好:"+ uname);
+			}
+			
+			//一般要求形参，实参数目一致，并且一一对应
+			sayHello("138787");//传递参数，实际参数
+			
+			
+			/**
+			 * 测试返回值
+			 * 函数的默认返回值是undefined
+			 */
+			function sayBack(){
+				return "66666";
+			}
+			
+			//把返回值传递给text
+			var text=sayBack();
+			
+			alert(text);
+		</script>
+	</head>
+	<body>
+		<h1>函数的声明</h1>
+	</body>
+</html>

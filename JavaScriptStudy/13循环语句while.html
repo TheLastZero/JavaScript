@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			do while至少先执行一次在判断循环条件
+			continue;//跳出本次循环
+			break跳出整个循环
+		-->
+		<script type="text/javascript">
+			
+			//声明一个变量
+			var age=18;
+			//缴纳养老保险
+			while (age<65){
+				window.document.write("缴纳养老保险:  "+age);
+				age++;
+			}
+			
+			age+=200;
+			
+			do{
+				window.document.write("缴纳养老保险:  "+age);
+			}while(age<65);
+			
+			for(;age<300;age++){
+				
+				if(age==290){
+					continue;//跳出本次循环
+				}
+				window.document.write("缴纳养老保险:  "+age);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>循环语句while</h1>
+	</body>
+</html>

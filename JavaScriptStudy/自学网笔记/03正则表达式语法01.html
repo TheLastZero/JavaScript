@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			正则表达式语法
+			
+			//i就是不区分大小写,执行对大小写不敏感的匹配
+			var re=/html/i;
+			//g就是返回所有符合条件的字符串,执行全局匹配
+			var re2=/html/gi;
+			//m执行多行匹配
+		-->
+		<script type="text/javascript">
+			
+			/**
+			 * 创建正则表达式的方法1,
+			 * 第一个是模式（比如2016-9-9就是一种模式）
+			 * 第二个是修饰符
+			 */
+			var reg=new RegExp('a','g');
+			//第二种方法
+			var reg2=/a/g;
+			document.write(reg+"--"+reg2);
+			
+			var str="Html2 HtML5 html5 Html5 Html5";
+			//i就是不区分大小写,执行对大小写不敏感的匹配
+			var re=/html/i;
+			//g就是返回所有符合条件的字符串,执行全局匹配
+			var re2=/html/gi;
+			//m执行多行匹配
+			
+			//用有序列表显示
+			document.write('<ol>');
+			document.write('<li>'+str.search('html')+'</li>'+'<br>');
+			document.write('<li>'+str.search(re)+'</li>'+'<br>');
+			//match方法返回这个字符串本身,正则表达式没有加g的时候默认返回第一个
+			document.write('<li>'+str.match(re)+'</li>'+'<br>');
+			document.write('<li>'+str.match(re2)+'</li>'+'<br>');
+			//替换,不加g的时候默认只替换第一个
+			document.write('<li>'+str.replace(re,'HTML')+'</li>'+'<br>');
+			document.write('<li>'+str.replace(re2,'HTML')+'</li>'+'<br>');
+			document.write('<o/l>');
+			
+		</script>
+	</head>
+	<body>
+		<h1>正则表达式语法</h1>
+	</body>
+</html>

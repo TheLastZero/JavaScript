@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			BOM（browser object model），简称浏览器对象模型
+			BOM主要用于管理窗口与窗口之间的通讯，因此核心对象是Windows
+			BOM由一系列相关的对象构成，并且每个对象都提供了很多方法和属性
+			BOM浏览器对象模型尚无正式标准
+			
+			BOM的window对象
+				window对象是BOM的顶层（核心）对象，所有对象都是通过它延伸出来的
+				也可以称之为window的子对象
+				
+				由于Window是顶层对象，因此调用它的子对象时可以不显示的指明Window对象
+		-->
+		<script type="text/javascript">
+			/**
+			 * 当需要动态的获取屏幕的分辨率时就需要这样的操作
+			 */
+			function testScreen(){
+				//这个长宽是固定的电脑屏幕属性,不会随着窗口大小而改动
+				var width=window.screen.width;//返回屏幕的像素宽度
+				var height=window.screen.height;//返回屏幕的像素高度
+				alert("当前屏幕的宽度和长度是"+width+"*"+height);
+				
+				//这个长宽是去掉浏览器上面大概占了40px的状态栏所剩下的可用的大小
+				var awidth=window.screen.availWidth;
+				var aheight=window.screen.availHeight;
+				alert("当前窗口可用的大小为"+awidth+"*"+aheight);
+			}
+		</script>
+	</head>
+	<body>
+		<h1>浏览器用户屏幕</h1>
+		<input type="button" id="" value="查看用户浏览器分辨率" onclick="testScreen()" />
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			BOM对象
+			浏览器对象之浏览器信息
+		-->
+	</head>
+	<script type="text/javascript">
+		function testNvai(){
+//			//获取信息,返回浏览器代码名
+//			document.write("appCodeName："+window.navigator.appCodeName+"<br />");
+//			//返回浏览器名称
+//			document.write("appName："+window.navigator.appName+"<br />");
+//			//返回浏览器版本
+//			document.write("appVersion："+window.navigator.appVersion+"<br />");
+//			//返回浏览器是否启用cookie的布尔值，一般浏览器是禁用cookie的
+//			document.write("cookieEnabled："+window.navigator.cookieEnabled+"<br />");
+//			//返回运行浏览器的操作系统平台
+//			document.write("platform："+window.navigator.platform+"<br />");
+//			//返回客户端发送服务器的user-agent
+//			document.write("userAgent："+window.navigator.userAgent+"<br />");
+			
+			//获取浏览器信息并且判断是否为IE浏览器
+			if(window.navigator.userAgent.toUpperCase().indexOf("MANMJS")>=0){
+				//跳转页面
+				window.location.href="36_test.html";
+				alert("为了获取更好的用户体验请尝试使用谷歌浏览器");
+				
+			}
+		}
+		/**
+		 * 当页面加载完成的时候调用指定的函数
+		 */
+		window.onload=function(){
+			testNvai();
+		}
+	</script>
+	<body>
+		<h1>浏览器信息</h1>
+		<input type="button" id="" value="浏览器信息" onclick="testNvai()"/>
+	</body>
+</html>

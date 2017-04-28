@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			JavaScript面向对象编程
+			
+			聚合：聚合是指我们将现有对象合并成一个新的对象的过程
+			
+			多态：不同对象通过相同的方法调用实现各自行为的能力，我们就称之为多态
+			
+			JavaScript最重要的对象object
+			object是JS所有对象的父级对象，这意味着我们创建的所有对象都继承与此
+		-->
+		<script type="text/javascript">
+			function testObject(){
+				//创建一个object对象
+				var o=new Object();
+				//JS动态语言可以动态的改变代码的属性
+				o.uname="张三";//object里没有uname，但是在JS里可以自动创建这个属性
+				document.write(o.uname+"<br />");//所以这里是可以输出张三的
+				delete o.uname;//也可以将uname这个属性删除
+				//只是声明但是没有赋值的变量，就是称之为undefined
+				document.write(o.uname);//删除后再调用找不到，所以是undefined
+			}
+			/**
+			 * 私有属性
+			 */
+			function testPrivate(){
+				//私有变量和函数,只能在这个局域内使用
+				var name="李四";
+				var run=function(){
+					document.write(name);
+				}
+				run();
+			}
+			
+			/**
+			 * 静态属性,只能被这个类所使用
+			 */
+			function testStatic(){};
+			testStatic.uname="王五";
+			testStatic.tun=function(){
+				document.write(testStatic().uname);
+			}
+			document.write(testStatic.uname+"<br />");//uname只能在本类中使用
+			//新new出来的testStatic是没有uname属性的
+			document.write(new testStatic().uname+"<br />");
+			
+			/**
+			 * 实例变量和函数
+			 * 可以在不同对象中使用
+			 */
+			function testImpl(){
+				this.uname="赵六";
+				this.run=function(){
+					document.write("这里是实例函数被调用"+"666"+"<br />");
+				}
+			}
+			var t1=new testImpl();
+			document.write("实例变量"+t1.uname+"<br />");
+			t1.run();
+		</script>
+	</head>
+	<body>
+		<h1>Object</h1>
+		<input type="button" id="" value="测试object" onclick="testObject()" />
+		<input type="button" id="" value="测试私有变量和函数" onclick="testPrivate()"/>
+		<input type="button" id="" value="测试实例变量和函数" onclick="testImpl()"/>
+	</body>
+</html>

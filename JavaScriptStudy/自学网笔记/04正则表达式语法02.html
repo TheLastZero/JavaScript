@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//把所有aa替换掉
+			var str1="reghui6876aakh167jhgaa1898uryaa587aa";
+			//把所有的aa，kk，hh，cc替换掉
+			var str2="123reghui6876aakh167jhgkk1898uryhh587cc";
+			
+			//g就是返回所有符合条件的字符串,执行全局匹配
+			var reg=/aa/g
+			/**
+			 * 用正则表达式替换掉从a-z所有的字母
+			 * [0-9]查找0-9所有数字
+			 * [a-z]查找任何从小写a到小写z的字符
+			 * [A-Z]查找任何从大写A到大写Z的字符
+			 * [A-z]查找任何从大写A到小写z的字符(52个都有)
+			 * [adgk]查找给定集合内的任何字符
+			 * [^adgk]查找给定集合外的任何字符
+			 * (red|blue|green)查找任何指定的选项
+			 * []表示范围比如从a-z，
+			 */
+			var reg2=/[a-z]/g;
+			var reg3=/[0-9]/g;
+			document.write('<ol>');
+			document.write('<li>'+str1+'</li>');
+			//利用正则表达式把所有的aa替换掉
+			document.write('<li>'+str1.replace(reg,'')+'</li>');
+			document.write('<li>'+str2.replace(reg2,'')+'</li>');
+			document.write('<li>'+str2.replace(reg3,'')+'</li>');
+			document.write('</ol>');
+		</script>
+		<style type="text/css">
+			li{
+				font-size: 20px;
+				width: 500px;
+				background: rgba(0,180,80,0.3);
+				padding: 10px;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+</html>

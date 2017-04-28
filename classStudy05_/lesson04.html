@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function test(){
+				var arr=new Array();
+			
+			 arr[0]=["小暗黄","小红","小黄"];
+			 arr[1]=["祭坛说","后手帝如来","小叶"];
+			 arr[2]=["小飞侠","肥猪","猪猪侠"];
+			 
+			 var arr1=['we','rt',854,'t','65wqef'];
+			 
+			 var arr3=arr.concat(arr1);
+			 
+			 var t=document.getElementById("t1");
+			 
+			 var arr4=arr3.join("-");
+			 
+				t.value=arr4;
+			}
+			
+			 
+		</script>
+	</head>
+	<style type="text/css">
+			body{
+				text-align: center;
+			}
+			#t1{
+				width: 770px;
+				background-color: bisque;
+				text-align: center;
+				font-size: 20px;
+			}
+		</style>
+	<body onload="test()">
+		<input type="text" id="t1" value="" />
+	</body>
+</html>

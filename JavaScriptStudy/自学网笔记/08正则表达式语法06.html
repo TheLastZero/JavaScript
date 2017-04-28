@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			正则表达式的量词
+			
+			n+	匹配包含至少一个n的字符串(至少包含前一项字符串，多了不限)
+		-->
+	</head>
+	<script type="text/javascript">
+		
+		var str1="360 36 180 8 81 7 49 9 99 21 100";
+		var str2="HTML-5 HTML 5 HTML*5 HTML&5 HTML+5";
+		var str3="Gd Dod Good Goood GoGoGod";
+		//  \d查找所有数字[0-9]
+		var reg1=/\d/g;
+		//  n+	匹配包含至少一个n的字符串,在这里空格不是数字，所以会继续匹配下一个
+		var reg2=/\d+/g;
+		//这里可以匹配单词
+		var reg3=/\w+/g;
+		//匹配所有有Go开始末尾为d的字符串，+是至少一次才能被匹配到
+		var reg4=/Go+d/g;
+		//匹配所有有Go开始末尾为d的字符串，*是匹配前一项0次或多次,包括0次
+		var reg5=/Go*d/g;
+		//   n?匹配任何包含0个或者一个n的字符串,两个三个的都不会被匹配到
+		var reg6=/Go?d/g;
+		//	o{2}匹配2个o
+		var reg7=/Go{2}d/g;
+		//匹配数字里所有的两位数
+		var reg8=/\w{2}/g;
+		
+			document.write('<ol>');
+			document.write('<li>'+str1+'</li>');
+			document.write('<li>'+str1.match(reg1)+'</li>');
+			document.write('<li>'+str1.match(reg2)+'</li>');
+			document.write('<li>'+str2.match(reg3)+'</li>');	
+			document.write('<li>'+str3+'</li>');		
+			document.write('<li>'+str3.match(reg4)+'</li>');		
+			document.write('<li>'+str3.match(reg5)+'</li>');
+			document.write('<li>'+str3.match(reg6)+'</li>');
+			document.write('<li>'+str3.match(reg7)+'</li>');
+			document.write('<li>'+str1.match(reg8)+'</li>');
+			document.write('</ol>');
+	</script>
+	<style type="text/css">
+			li{
+				font-size: 20px;
+				width: 500px;
+				background: rgba(0,180,80,0.3);
+				padding: 10px;
+				margin: 10px;
+			}
+		</style>
+	<body>
+		
+	</body>
+</html>

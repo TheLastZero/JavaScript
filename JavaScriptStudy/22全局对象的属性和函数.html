@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			JavaScript全局对象
+			全局对象是预定义的对象，作为JavaScript的全局函数和全局属性的占位符
+			
+			通过使用全局对象，可以访问所有其他所有预定义的对象，函数和属性，
+			全局对象不是任何对象的属性，所以它没有名称
+			
+			全局对象只是一个对象，而不是类，既没有构造函数，也无法实例化一个全新的全局对象
+			
+			JavaScript全局对象的属性
+			-Infinity	代表正的无穷大的数值
+			-Java		代表Java.*包层级的一个JavaPackage
+			-NaN		指示某个值四不四数字值
+			-Packages	根javaPackage对象
+			-undedined	指示未定义的值
+		-->
+		
+		<!--
+			JavaScript全局对象的函数
+		-->
+		<script type="text/javascript">
+			
+			function testCode(){
+				var str="http://www.baidu.com?uname=lisi&realname=李四";
+				//编码,一般用第三种比较多,反编码在escape前面加一个un就行
+				document.write(escape(str)+"<br />"+encodeURI(str)+"<br />"+encodeURIComponent(str));
+			}
+			
+			function testObject(){
+				var str=111;
+				//isNaN是不是不是一个数字，isFinite是不是有穷的
+				document.write(isNaN(str)+"--"+isFinite(str));
+			}
+			
+			function testChange(){
+				var str="123.456";
+				//开始转换,成数字，整形，浮点型,转不成数字的时候会出现NaN
+				document.write("原来是数据是"+str+"<br />");
+				document.write(Number(str)+"<br />"+parseInt(str)+"<br />"+parseFloat(str));
+			}
+			
+			function testEval(){
+				var str="var num=666;";
+				
+				//把str的字符串当成一段JS代码去执行
+				eval(str);
+				
+				alert(num);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>JavaScript的全局对象的属性和方法</h1>
+		<hr />
+		<input type="button" value="测试编码" onclick="testCode()" />
+		<input type="button" value="测试判断是否为数字" onclick="testObject()" />
+		<input type="button" value="测试转换为数字，整形，浮点型" onclick="testChange()" />
+		<input type="button" value="测试执行" onclick="testEval()" />
+	</body>
+</html>

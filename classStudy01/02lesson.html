@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var score=window.prompt("请输入分数","0-100");
+			
+			if(score>100){
+				alert("超出范围");
+			}else if(score>80){
+				alert("优秀");
+			}else if(score>60){
+				alert("及格");
+			}else if(score>0){
+				alert("不及格");
+			}else if(score<0){
+				alert("你妹夫的分数还有负数");
+			}else if(isNaN(score)){
+				alert("大哥输入数字啊");
+			}else{
+				alert("我真的不知道大哥你输入的是什么,可以看到我这一句话");
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

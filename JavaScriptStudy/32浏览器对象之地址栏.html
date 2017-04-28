@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			地址栏是BOM对象的一个属性
+			window.location
+				对象用于获得当前页面的地址（URL），并把浏览器重新定向到新的页面
+		-->
+		<script type="text/javascript">
+			function testLocation(){
+				//获取当前页面的URL
+				var href=window.location.href;
+				document.write("当前页面地址为："+href+"<br />");
+				
+				/**
+				 * 这下面四个是把href拆开
+				 */
+				//返回主机域名
+				var hostname=window.location.hostname;
+				document.write("返回web主机的域名"+hostname+"<br />");
+				
+				//返回当前页面的路径和文件名
+				var pathname=window.location.pathname;
+				document.write("返回当前页面的路径和文件名"+pathname+"<br />");
+				
+				//返回web主机端口（80或443）
+				var port=window.location.port;
+				document.write("返回web主机端口"+port+"<br />");
+				
+				//
+				var protocol=window.location.protocol;
+				document.write("protocol:  "+protocol+"<br />");
+				
+				
+			}
+			/**
+				 * 设置href地址的属性
+				 */
+				function testSetlocation(){
+					//设置地址,https比http多的一个加密的功能
+					window.location.href="https://www.baidu.com";
+				}
+				
+				/**
+				 * 刷新当前页面
+				 */
+				function testReolad(){
+					window.location.reload();
+				}
+				/**
+				 * 测试页面跳转
+				 */
+				function testAssign(){
+					window.location.assign("http://www.baidu.com");
+				}
+		</script>
+	</head>
+	<body>
+		<h1>浏览器对象的地址栏属性</h1>
+		<input type="button" id="" value="获取地址栏对象的值" onclick="testLocation();" />
+		<input type="button" id="" value="跳转至百度网页" onclick="testSetlocation();" />
+		<hr />
+		<input type="button" id="" value="刷新当前页面" onclick="testReolad();" />
+		<input type="button" id="" value="测试页面的跳转" onclick="testAssign()"/>
+	</body>
+</html>

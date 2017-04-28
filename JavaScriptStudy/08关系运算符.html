@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			关系运算符
+		-->
+		<script type="text/javascript">
+			/**
+			 * 非等值关系运算符
+			 */
+			var a=3000;
+			var b=2000;
+//			alert(a>b);//这里返回的是一个布尔值true
+			var a1=3000;
+			var b1=3000;
+//			alert(a1>b1);//这里返回的是一个布尔值false
+			
+//			alert(a!=b);//a不等于b返回的是一个布尔值true
+			
+			/**
+			 * 等值关系运算符
+			 * ==等值符	先装换成为相同类型在比较，比如数字456和数字789比较,就是比较值
+			 * ===等同符	先比较类型,类型相同再比较值
+			 * 基本数据类型同时向number靠拢，调用Number全局变量
+			 * NaN直接都不等于自己,NaN与任意的字符进行数学运算得到的结果还是NaN
+			 */
+			var aa=1;
+			var bb=true;//转换之后是1
+			var cc="1";
+			var dd='1';
+			var ee="true";//转换之后是NaN，不等于aa
+			
+//			alert(aa===bb);//===先比较类型，所以这里直接返回false
+//			alert(cc==dd);//都是String类型的1，所以这里返回true
+
+//			alert(aa==bb);//这里会转换成相同类型再比较，true会转换成1，所以这里返回true
+
+			function textNumber(){
+				var aaa="aaa";
+				var aaa1=true;//用Number（）转换后true是1，false是0
+				alert(Number(aaa1));//Number()将括号里的东西转成数字，无法转的返回NaN
+			}
+			
+			/**
+			 * js的内存分析
+			 * 声明一个变量名的时候，都把它放到栈内存里
+			 * 对象都放到堆内存里，每个对象都有一个地址，对象比较的一般是地址
+			 */
+			alert([]==[]);//false
+			alert({}=={});//false
+		</script>
+	</head>
+	<body>
+		<h1>关系运算符</h1>
+		<input type="button" id="number" value="textNumber" onclick="textNumber()"/>
+	</body>
+</html>

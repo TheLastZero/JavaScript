@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#one{
+				height: 300px;
+				width: 200px;
+				background-color: yellow;
+			}
+			#two{
+				height: 200px;
+				width: 100px;
+				background-color:aqua;
+			}
+			#three{
+				height: 100px;
+				width: 50px;
+				background-color:bisque;
+
+		</style>
+		
+	</head>
+	<body>
+		<h1>JavaScript事件冒泡和事件捕获</h1>
+		<hr />
+		<div id="one">
+			<div id="two">
+				<div id="three">
+					
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			/**
+			 * 添加一个标识用来描述是事件冒泡，还是捕获,
+			 * useCapture为false时是事件冒泡
+			 * useCapture为true的时候是捕获
+			 * 其实就是看它从最外层(冒泡)开始，还是最里层（捕获）开始
+			 * 
+			 * 事件的终止
+			 */
+			var useCapture=true;
+			
+			//获取元素
+			var one=document.getElementById("one");
+			var two=document.getElementById("two");
+			var three=document.getElementById("three");
+			
+			//给元素绑定事件
+			one.addEventListener("click",function(event){
+				alert("one");
+				//获取事件对象
+				var eve=window.event||event;
+				//设置事件的终止的两种方式
+//				eve.cancelBubble=true;
+				eve.stopPropagation();
+				
+			},useCapture);
+			two.addEventListener("click",function(){
+				alert("点击了two");
+			},useCapture);
+			three.addEventListener("click",function(){
+				alert("three");
+			},useCapture);
+			
+		</script>
+	</body>
+</html>

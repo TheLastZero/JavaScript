@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/**
+			 * 页面后退方法
+			 */
+			function testBack(){
+				window,history.back();
+			}
+			/**
+			 * 页面前进方法
+			 */
+			function testForward(){
+				window.history.forward();
+			}
+			/**
+			 * 跳转到任意浏览过的网页下标
+			 * 自己当前页面为0
+			 */
+			function testGO(num){
+				window.history.go(num);
+			}
+		</script>
+	</head>
+	<body>
+		<h1>第二个页面</h1>
+		<a href="34_页面三.html">跳转到333</a>
+		<input type="button" id="" value="后退" onclick="testBack()"/>
+		<input type="button" id="" value="前进" onclick="testForward()"/>
+		<input type="button" id="" value="跳转到下标页面" onclick="testGO(-2)" />
+	</body>
+</html>

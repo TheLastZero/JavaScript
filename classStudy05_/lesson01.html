@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function testDate() {
+				var d = new Date();
+				var t = document.getElementById("t1");
+				var week = "星期" + d.getDay();
+			
+			
+				var w = week.replace(/[1-7]/,"一");
+//				w = week.replace(/2/, "二");
+//				w = week.replace(/3/, "三");
+//				w = week.replace(/4/, "四");
+//				w = week.replace(/5/, "五");
+//				w = week.replace(/6/, "六");
+//				w = week.replace(/7/, "七");
+				
+				if(d.getHours() < 12) {
+					t.value = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + "-" +
+						d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + "上午好" + "今天是：" + w;
+				} else {
+					t.value = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + "-" +
+						d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + "下午好" + "今天是" + w;
+				}
+				setTimeout("testDate()", 500);
+			}
+		</script>
+		<style type="text/css">
+			#t1 {
+				width: 500px;
+			}
+		</style>
+	</head>
+
+	<body onload="testDate()">
+		<input type="text" id="t1" value="" />
+	</body>
+
+</html>

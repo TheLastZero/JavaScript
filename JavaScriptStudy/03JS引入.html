@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			引入JS文件
+			只要有src就表示这个script只能用来引入js文件，不能在里面写代码块
+			因为就算写了也不会被执行
+		-->
+		<script type="text/javascript" src="js/03JS引入.js"></script>
+		<script type="text/javascript">
+			//声明一个JS的字符串，方便测试去空格功能
+			var str="   ab cd   ";
+			//测试去左右空格方法，字母中间的空格还是有的
+			alert("[" + str.trim() + "]");
+			//trim前面要加r,就是去右边空格的方法
+			alert("[" + str.rtrim() + "]");
+			//trim前面要加l，就是去左边空格的方法
+			alert("[" + str.ltrim() + "]");
+			
+		</script>
+	</head>
+
+	<body>
+		<h1>学习如何引入JS文件</h1>
+
+	</body>
+
+</html>

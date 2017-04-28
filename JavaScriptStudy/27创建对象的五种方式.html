@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			创建对象的五种方式
+			
+			比较推荐第四种方式，第五种方式是多人开发大型项目的时候可能会用到
+			现在比较流行sea.js模块化编程，比这个还要简单
+			
+			JavaScript的原型和原型链
+				每个函数都有一个prototype属性，这个属性是一个指针，指向一个对象，
+				这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法
+				
+			
+			内存分析
+			栈内存（用来存放声明的变量）
+			堆内存（对象）
+			方法区（有一个指针叫prototype指向）
+		-->
+		<script type="text/javascript">
+			function testCreate(){
+				//工厂模式
+				document.write("1、工厂方式"+"<br />");
+				var student=factoryModel("张小红",18);
+				document.write(student.name+"--"+student.age+"<br />");
+				student.learn();
+				
+				//构造函数方式
+				document.write("2、构造函数方式"+"<br />");
+				var st1=new Student("王五",36);
+				document.write(st1.name+"--"+st1.age+"<br />");
+				
+				//原型方式
+				document.write("3、原型方式"+"<br />");
+				var t1=new Teacher();
+				var t2=new Teacher();
+				//修改或赋值t1对象
+				t1.uname="修改的名字";//如果给属性赋值，是不会影响到其他新创建的对象的
+				t1.fav.push("足球");//修改的话，是会影响到所有对象的
+				document.write("t1的属性:"+t1.uname+"--"+t1.age+"--"+t1.fav+"<br />");
+				document.write("t2的属性:"+t2.uname+"--"+t2.age+"--"+t1.fav+"<br />");
+				
+				//混合的构造函数和原型（有点相当于是把第二种和第三种结合）,基本比较完整了
+				document.write("4、混合的构造函数和原型"+"<br />");
+				var p1=new Person("丁鹏",18,"男");
+				var p2=new Person("王尼玛",26,"男");
+				p1.speak();
+				p2.speak();
+				
+				//动态原型模式，比较完美了，但是麻烦
+				document.write("5、动态原型模式"+"<br />");
+				var d1=new Dog("旺财");
+				//d1._run是类变量，直接是无法使用的
+				document.write("看看d1的run是否被声明创建"+d1._run+"<br />");//看看是否被声明创建
+				//d1._run的使用
+				d1.run();
+				
+			}
+			/**
+			 * 1、工厂方式
+			 * 		工厂模式解决了实例化对象大量重复的问题，
+			 * 		但是无法搞清楚他们到底是哪个对象的实例
+			 * @param {String} name
+			 * @param {Number} age
+			 */
+			function factoryModel(name,age){
+				//创建一个object对象
+				var obj=new Object();
+				//设置对象的属性和方法
+				obj.name=name;
+				obj.age=age;
+				obj.learn=function(){
+					document.write("好好学习天天向上"+"<br />");
+				}
+				//返回对象
+				return obj;
+			}
+			
+			/**
+			 * 2、构造函数方式 
+			 * 		函数首字母大写的都代表构造函数，以用来区别普通函数
+			 * 		既解决了重复实例化的问题，又解决了对象实例化的问题
+			 * 
+			 * 缺点：
+			 * 		就是会重复创建learn=function()这个函数，解决方法就是原型模式
+			 * @param {String} name
+			 * @param {Number} age
+			 */
+			function Student(name,age){
+				//实例变量
+				this.name=name;
+				this.age=age;
+				this.learn=function(){
+					document.write("实例变量的方法");
+				}
+			}
+			/**
+			 * 3、原型方式
+			 * 	如果要声明一千个学生对象，
+			 * 	就会把teach=function()这个方法也声明一千次，效率低，也浪费资源
+			 * 	所以把这些属性写在prototype里，所有的属性方法都指向一个地方，可以提高效率
+			 *  prototype是每个函数都有的属性
+			 * 
+			 * 缺点:
+			 * 		没法赋值初始值
+			 * 		找值的时候，每个对象都去prototype原型上找，很麻烦
+			 */
+				//创建一个空对象
+				function Teacher(){};
+				Teacher.prototype.uname="张三";
+				Teacher.prototype.age=28;
+				Teacher.prototype.fav=["乒乓球","羽毛球","篮球"];
+				Teacher.prototype.teach=function(){
+					document.write("原型方式创建的方法");
+				}
+				
+				/**
+				 * 4、混合的构造函数和原型
+				 * @param {Object} name
+				 * @param {Object} age
+				 * @param {Object} gender
+				 */
+				function Person(name,age,gender){
+					//一般来说，这几个是人之间不同的属性
+					this.name=name;
+					this.age=age;
+					this.gender=gender;
+				}
+				
+				Person.prototype.speak=function(){//原型方式，大家都有的方法
+					document.write(this.name+"向您问好"+"<br />");
+				}
+				
+				/**
+				 * 动态原型初始化
+				 * @param {Object} name
+				 */
+				function Dog(name){
+					//设置属性
+					this.name=name;
+				}
+				//设置原型的时候需要判定，防止重复
+				if(typeof Dog._run=="undefined"){//如果判定为空，就去声明.run的函数
+					//设置原型
+					Dog.prototype.run=function(){
+						document.write("小狗狗跑啊跑"+"<br />");
+					}
+					//设置判定，别人就不能再设置了
+					Dog._run=true;
+				}
+		</script>
+	</head>
+	<body>
+		<h1>创建对象的五种方式</h1>
+		<input type="button" id="" value="测试创建方式" onclick="testCreate()" />
+	</body>
+</html>

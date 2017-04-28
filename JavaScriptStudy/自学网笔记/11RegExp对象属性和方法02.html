@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			正则表达式属性
+			/**
+			 * 1、.global RegExp对象是否具备有标志g
+			 * 有就返回true，没有就返回false
+			 * 
+			 * 2、.ignoreCase RegExp对象是否具有标志i
+			 * 有就返回true，没有就返回false
+			 * 
+			 * 3、.multiline RegExp对象是否具有标志m
+			 * 有就返回true，没有就返回false
+			 * 
+			 * 4、source 正则表达式的源文本
+			 * 返回模式匹配所用的文本,不包括标识符g，i，m
+			 * 就是我正则表达式里面写的要匹配的字符
+			 * 
+			 * 5、lastIndex 一个整数，标识开始下一次匹配的字符位置
+			 * 该属性存放一个整数，它声明的是上一次匹配文本之后的第一个字符的位置
+			 * 多用于在一个字符串中进行多次匹配
+			 * 
+			 * 
+			 * 不具有g和不表示全局模式的RegExp对象不能使用lastIndex属性
+			 */
+		-->
+		<!--
+			正则表达式的方法
+			/**
+			 * test 检索字符串中指定的值,返回true或者false
+			 * 检测str字符串中是否有正则表达式指定的文本
+			 */
+		-->
+		<script type="text/javascript">
+			var str1 = "123HTML5 HTML5 HTML5 HTML5";
+			// m多行匹配
+			var reg1 = /html5/gim;
+
+			document.write('<ol>');
+			document.write('<li>' + str1 + '</li>');
+			//reg1.source返回模式匹配所用的文本,不包括标识符g，i，m
+			document.write('<li>' + reg1.source + '</li>');
+			//search返回查找到的下标
+			document.write('<li>' + str1.search(reg1) + '</li>');
+			//test 检测str字符串中是否有正则表达式指定的文本
+			document.write('<li>' + reg1.test(str1) + '</li>');
+			/**
+			 * lastIndex 一个整数，标识开始下一次匹配的字符位置
+			 * 该属性存放一个整数，它声明的是上一次匹配文本之后的第一个字符的位置
+			 * 多用于在一个字符串中进行多次匹配
+			 * 
+			 * 123HTML5 有七个字符，所以reg1.lastIndex返回的是第八个空格的位置8
+			 */
+			document.write('<li>'+"开始下一次匹配的位置" + reg1.lastIndex + '</li>');
+			reg1.test(str1)
+			document.write('<li>'+"开始下一次匹配的位置" + reg1.lastIndex + '</li>');
+			reg1.test(str1)
+			document.write('<li>'+"开始下一次匹配的位置" + reg1.lastIndex + '</li>');
+			
+			
+			
+			document.write('</ol>');
+		</script>
+		<style type="text/css">
+			li {
+				font-size: 20px;
+				width: 500px;
+				background: rgba(0, 180, 80, 0.3);
+				padding: 10px;
+				margin: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+	</body>
+
+</html>

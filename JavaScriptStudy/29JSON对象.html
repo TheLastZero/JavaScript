@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			JavaScript对象表示法
+			JSON的形式就是用大括号{}包围起来的项目列表，每一个项目间用逗号（,）分隔
+			而项目就是用冒号（:）分隔的属性名和属性值。这是典型的字典表示形式,
+			也再次表明JavaScript里的对象就是字典结构。
+			不管多么复杂的对象，都可以用一句JSON代码来创建并赋值。在JSON中，
+			名称/值对包括字段名称（在双引号中）,后面写一个冒号，然后是值
+		-->
+		<script type="text/javascript">
+			function testJson(){
+				//声明一个JSON
+				var obj1=new Object();
+				//另一个声明对象的方式
+				var obj2={};
+				//数组
+				var arr1=new Array();
+				var arr2=[];
+				
+				//声明一个JSON对象,前面是属性，(:)后面是值，然后逗号隔开下一个
+				var obj3={"uname":"张三",
+						"realname":"张三丰",
+						"age":10,
+						run:function(){
+							document.write("一个有意思的对象创建方法"+"<br />");
+						}
+				};
+				obj3.run();
+			}
+			/**
+			 * eval可以把字符串转成JavaScript可以识别的代码
+			 */
+			function operJson(){
+				//高版本浏览器操作JSON
+				var j1='{"uname":"张三","rename":"李四"}';
+				eval("var jj="+j1);//将字符串转成浏览器可以执行的语言
+				document.write(jj.uname+"<br />");
+				
+				var jj1=JSON.parse(j1);//返回一个j1字符串里声明的对象
+				document.write(jj1.rename);
+				
+				//将JSON对象转成字符串
+				var jj2={"name":"赵武","age":26};
+				alert(JSON.stringify(jj2));
+			}
+		</script>
+	</head>
+	<body>
+		<h1>JSON对象</h1>
+		<input type="button" id="" value="测试JSON" onclick=" testJson()" />
+		<input type="button" id="" value="测试eval" onclick="operJson()"/>
+	</body>
+</html>

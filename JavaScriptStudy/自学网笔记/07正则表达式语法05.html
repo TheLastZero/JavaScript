@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			\w	查找单词字符(包括英文字母，数字，下划线)
+			\W	查找非单词字符(包括非英文字母，数字，下划线之外的字符)
+			\d	查找数字
+			\D	查找非数字字符
+		-->
+		<script type="text/javascript">
+			var str1="HTML-5 HTML 5 HTML*5 HTML&5 HTML+5";
+			var str2="HTML-5 HTML 5 HTML "+"\n *5"+" HTML&5 HTML+5";
+			var str3="我__的邮箱是673049723@qq.com";
+			
+			
+			//   .可以匹配到所有的符号，除了换行符
+			var reg1=/HTML.5/g;
+			//		\w查找单词字符(包括英文字母，数字，下划线)
+			var reg2=/\w/g;
+			//   \W	查找非单词字符(包括非英文字母，数字，下划线之外的字符)
+			var reg3=/\W/g;
+			//		\d	查找所有的数字
+			var reg4=/\d/g
+			//		\d	查找所有的非数字
+			var reg5=/\D/g
+			
+			document.write('<ol>');
+			document.write('<li>'+str1+'</li>');
+			document.write('<li>'+str1.match(reg1)+'</li>');
+			//.无法识别换行符,所以会少一个
+			document.write('<li>'+str2+'</li>');
+			document.write('<li>'+str2.match(reg1)+'</li>');
+			document.write('<li>'+str3.match(reg2)+'</li>');
+			document.write('<li>'+str3.match(reg3)+'</li>');
+			document.write('<li>'+str3.match(reg4)+'</li>');
+			document.write('<li>'+str3.match(reg5)+'</li>');
+			document.write('</ol>');
+		</script>
+		<style type="text/css">
+			li{
+				font-size: 20px;
+				width: 500px;
+				background: rgba(0,180,80,0.3);
+				padding: 10px;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+</html>

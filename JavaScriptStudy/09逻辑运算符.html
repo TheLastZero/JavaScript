@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			逻辑运算符
+			与或非
+		-->
+		<script type="text/javascript">
+			
+			var a=160;
+			var b=170;
+			var c=180;
+			
+//			alert(c>b&&c>a);//&&逻辑与运算（也就是并且）,只有全部为true，结果才是true
+			
+//			alert(b>a||b>c);//||逻辑或，只要有一个结果为true，结果就是true
+			
+//			alert(!c>b);//前面加一个感叹号，就是对这个表达式结果取反
+
+			/**
+			 * 短路与&&,只要第一个为false，后面就不看
+			 * 逻辑与&，无论起前面对与错，后面都会看
+			 */
+			var str=null;
+			if(str!=null&&str.length>3){//只要第一个为false，后面就不看
+				alert("");
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>逻辑运算符</h1>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function testRandom() {
+				var first="1";
+				var second;
+				//这里随机出0，1，2
+				var ran1 = Math.floor(Math.random() * 3);
+				if(ran1==0){
+					second=3;
+				}else if(ran1==1){
+					second=5;
+				}else if(ran1==2){
+					second=8;
+				}
+				
+				var ran2 = Math.floor(Math.random() * 1000000000);
+				
+				var result=first+second+ran2;
+				document.form1.t1.value = result;
+			
+				/**
+				 * 开始一个定时器，每隔100毫秒调用testRandom()方法
+				 */
+				s=setTimeout("testRandom()",100);
+			}
+			function stop(){//停止定时器
+				clearTimeout(s);
+			}
+		</script>
+	</head>
+
+	<body>
+		<form name="form1">
+			<input type="text" id="" value="" name="t1" />
+			<input type="button" id="" value="开始摇奖" onclick="testRandom()" />
+			<input type="button" id="" value="停止" onclick="stop()" />
+		</form>
+	</body>
+
+</html>
